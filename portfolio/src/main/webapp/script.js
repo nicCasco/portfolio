@@ -15,6 +15,15 @@
 /**
  * Adds a random greeting to the page.
  */
+
+ async function showServerHello() {
+  const responseFromServer = await fetch('/hello');
+  const textFromResponse = await responseFromServer.text();
+
+  const helloContainer = document.getElementById('hello-container');
+  dateContainer.innerText = textFromResponse;
+ }
+
 function addRandomGreeting() {
   const greetings =
       ["What's up homeskillets!", "I'm sweaty and tired."," I just want Einsteins bagels.", "I wanna get my nails done.","I didn't sleep well last night."];
