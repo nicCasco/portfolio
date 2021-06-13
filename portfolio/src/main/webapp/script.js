@@ -16,14 +16,40 @@
  * Adds a random greeting to the page.
  */
 
+
  async function showServerHello() {
   const responseFromServer = await fetch('/hello');
-  const textFromResponse = await responseFromServer.text();
+  //const textFromResponse = await responseFromServer.text();
+  const hello = await responseFromServer.json();
+
+
 
   const helloContainer = document.getElementById('hello-container');
-  dateContainer.innerText = textFromResponse;
+  helloContainer.innerHTML='';
+
+
+  const movies = [ 'You\'ve Got Mail', 'My Big Fat Greek Wedding','Monster\'s University'];
+  
+  helloContainer.appendChild(
+      createListElement('Movie #1: ' + hello.movies.get(0)));
+  helloContainer.appendChild(
+      createListElement('Movie #2: ' + hello.movies.get (1)));
+  helloContainer.appendChild(
+      createListElement('Movie #3: ' + hello.movies.get(2)));
+
+   const rando = movies[Math.floor(Math.random() * movies.length)];
+
+  // Add it to the page.
+  helloContainer.innerText = rando;
+
  }
 
+ function createListElement(text){
+     const liElement = document.createElement('li'); 
+     liElement.innerText = text;
+     return liElement;
+ }
+ 
 function addRandomGreeting() {
   const greetings =
       ["What's up homeskillets!", "I'm sweaty and tired."," I just want Einsteins bagels.", "I wanna get my nails done.","I didn't sleep well last night."];
