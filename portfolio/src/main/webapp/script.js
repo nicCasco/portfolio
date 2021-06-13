@@ -28,20 +28,28 @@
   helloContainer.innerHTML='';
 
 
-  const movies = [ 'You\'ve Got Mail', 'My Big Fat Greek Wedding','Monster\'s University'];
-  
+ 
   helloContainer.appendChild(
-      createListElement('Movie #1: ' + hello.movies.get(0)));
+      createListElement('Movie #1: ' + hello.movie1));
   helloContainer.appendChild(
-      createListElement('Movie #2: ' + hello.movies.get (1)));
+      createListElement('Movie #2: ' + hello.movie2));
   helloContainer.appendChild(
-      createListElement('Movie #3: ' + hello.movies.get(2)));
+      createListElement('Movie #3: ' + hello.movie3));
 
-   const rando = movies[Math.floor(Math.random() * movies.length)];
-
+   
   // Add it to the page.
-  helloContainer.innerText = rando;
 
+
+ }
+
+ function randomMovie(){
+    const randoMovies= [ 'You\'ve Got Mail', 'My Big Fat Greek Wedding','Monster\'s University'];
+    const pick = randoMovies[Math.floor(Math.random() * (randoMovies.length))];
+
+ // Add it to the page.
+  const movieContainer = document.getElementById('movie-container');
+  movieContainer.innerText = pick;
+    
  }
 
  function createListElement(text){
@@ -52,10 +60,10 @@
  
 function addRandomGreeting() {
   const greetings =
-      ["What's up homeskillets!", "I'm sweaty and tired."," I just want Einsteins bagels.", "I wanna get my nails done.","I didn't sleep well last night."];
+      ['What\'s up homeskillets!', 'I\'m sweaty and tired.','I just want Einsteins bagels.', 'I wanna get my nails done.','I didn\'t sleep well last night.'];
 
   // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const greeting = greetings[Math.floor(Math.random() * (greetings.length))];
 
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
