@@ -15,12 +15,56 @@
 /**
  * Adds a random greeting to the page.
  */
+
+
+ async function showServerHello() {
+  const responseFromServer = await fetch('/hello');
+  //const textFromResponse = await responseFromServer.text();
+  const hello = await responseFromServer.json();
+
+
+
+  const helloContainer = document.getElementById('hello-container');
+  helloContainer.innerHTML='';
+
+
+ 
+  helloContainer.appendChild(
+      createListElement('Movie #1: ' + hello.movie1));
+  helloContainer.appendChild(
+      createListElement('Movie #2: ' + hello.movie2));
+  helloContainer.appendChild(
+      createListElement('Movie #3: ' + hello.movie3));
+
+ }
+
+ function randomMovie() {
+    const randoMovies= ['You\'ve Got Mail', 'My Big Fat Greek Wedding', 'Monster\'s University'];
+    const pick = randoPick(randoMovies); 
+
+ // Add it to the page.
+  const movieContainer = document.getElementById('movie-container');
+  movieContainer.innerText = pick;
+    
+ }
+
+ function randoPick(ele) {
+     const val = ele[Math.floor(Math.random()*(ele.length))];
+     return val;
+ }
+
+ function createListElement(text) {
+     const liElement = document.createElement('li'); 
+     liElement.innerText = text;
+     return liElement;
+ }
+ 
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['What\'s up homeskillets!', 'I\'m sweaty and tired.','I just want Einsteins bagels.', 'I wanna get my nails done.','I didn\'t sleep well last night.'];
 
   // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  const greeting = randoPick(greetings);
 
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
