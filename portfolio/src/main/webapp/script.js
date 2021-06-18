@@ -16,17 +16,14 @@
  * Adds a random greeting to the page.
  */
 
-
+// function to generate JSON list of favorite movies
  async function showServerHello() {
   const responseFromServer = await fetch('/hello');
   //const textFromResponse = await responseFromServer.text();
   const hello = await responseFromServer.json();
 
-
-
   const helloContainer = document.getElementById('hello-container');
   helloContainer.innerHTML='';
-
 
  
   helloContainer.appendChild(
@@ -48,11 +45,13 @@
     
  }
 
+ //function to generate random number
  function randoPick(ele) {
+     //calls math.random 
      const val = ele[Math.floor(Math.random()*(ele.length))];
      return val;
  }
-
+// function to create list
  function createListElement(text) {
      const liElement = document.createElement('li'); 
      liElement.innerText = text;
@@ -70,3 +69,29 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function translateLanguage() {
+
+    // gets inner text from About Me paragraph
+var text = document.getElementById('me').innerText;
+//gets language that was chosen from select button
+const languageCode = document.getElementById('language').value;
+
+//where translated message will appear
+const resultContainer = document.getElementById('result');
+
+//way in which the text will be translated in the servlet
+const params = new URLSearchParams();
+params.append('text', text);
+params.append('languageCode', languageCode);
+
+fetch('/translate', {
+    method:'POST',
+    body: params
+    }).then(response => response.text())
+    .then((translatedMessage) => {
+        resultContainer.innerText = translatedMessage;
+    });
+
+}
+
