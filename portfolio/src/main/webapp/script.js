@@ -73,19 +73,19 @@ function addRandomGreeting() {
 function translateLanguage() {
 
     // gets inner text from About Me paragraph
-var text = document.getElementById('me').innerText;
-//gets language that was chosen from select button
-const languageCode = document.getElementById('language').value;
+    var text = document.getElementById('me').innerText;
+    //gets language that was chosen from select button
+    const languageCode = document.getElementById('language').value;
 
-//where translated message will appear
-const resultContainer = document.getElementById('result');
+    //where translated message will appear
+    const resultContainer = document.getElementById('result');
 
-//way in which the text will be translated in the servlet
-const params = new URLSearchParams();
-params.append('text', text);
-params.append('languageCode', languageCode);
+    //way in which the text will be translated in the servlet
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('languageCode', languageCode);
 
-fetch('/translate', {
+    fetch('/translate', {
     method:'POST',
     body: params
     }).then(response => response.text())
