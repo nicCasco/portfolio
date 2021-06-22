@@ -12,6 +12,8 @@
         <div id="gallery">
             <h2>Nicole's Gallery</h2>
             <div class="image-thumbnails">
+
+                <!--List of images to be embedded with sizes-->
                 <a href="images/cheezits.jpg"><img src="/images/cheezits.jpg" width="125" height="250"/></a>
                 <a href="images/chillin.jpg"><img src="images/chillin.jpg" width="125" height="250"/></a>
                 <a href="images/Dominic.jpg"><img src = "images/Dominic.jpg" width="200" height="150"/></a>
@@ -23,21 +25,24 @@
             </div>
         </div>
     </div>
-
-    Intro paragraph of who I am.
-      <p>Hi everyone! My name is Nicole and this is my portfolio! So a little about me I am a 3rd year CS major at Engineering school at the University of Virgina. I am originally from Northern Virginia (NOVA as we like to call it). 
+    
+    <!--About me section-->
+    About Me:
+      <p id="me">Hi everyone! My name is Nicole and this is my portfolio! So a little about me I am a 3rd year CS major at Engineering school at the University of Virgina. I am originally from Northern Virginia (NOVA as we like to call it). 
         I am a first gen college student as both of my parents are immigrants. My mom is from Peru and my dad is from Honduras. I am the eldest of two with just a younger sister who is going to go to the rival university of mine!
         Outside of school I really love to travel. So far I have been to 12 different countries and hopefully after I graduate I will be able to travel again. I also really love taking care of kids. I used to work as a swim instructor
         for a year and half teaching mommy and me's and toddlers. I also nannied last summer and would volunteer as at a local preschool in Charlottesville. I am also a HUGE Disney fan. My house is filled with Disney decorations, stuff animals, appliances 
         you name it. Right now I am just trying to get back into a normal routine. This school year has really thrown me for a loop so at the moment I am just trying to get back into working out, eating a normal times again(lol), and trying to take some summer
         classes along with SPS. So thats just a brief overview of who I am. Hopefully this portfolio will give you an insight to who I am. </p>
-      
+    <div>
+        <!--Social Media Section-->
         Adds links to some of my social media accounts.
         <p>Some social media accounts:</p>
         <p>Instagram:<a href="https://www.instagram.com/nicole.casco/?hl=en">instagram</a></p>
         <p>LinkedIn:<a href="https://www.linkedin.com/in/nicole-casco/">linkedin</a></p>
      
-        create list of places I've traveled.
+
+        <!--Create List of Places-->>
         <p>Places I've Traveled:</p>
         <ul>
             <li>Peru</li>
@@ -55,7 +60,7 @@
         </ul>
 
 
-        Create list of favorite artists.
+        <!--Create list of favorite artists.-->
         <p>Favorite Artists:</p>
         <ul>
             <li>Camilo</li>
@@ -68,19 +73,51 @@
             <li>One Direction!!!!!</li>
         </ul>
      
+        <!--Button to generate random thoughts-->
         Button that generates sayings I normally say.
       <p>Click here to see what one of my many catchphrases:</p>
+      <!--Creates button from container-->
       <button onclick="addRandomGreeting()">My Thoughts</button>
       <div id="greeting-container"></div>
     </div>
-  </body>
+ 
 
-  <body>
-      <h2> Message Example</h2>
+  <!--Generat random movies-->
+ 
+      <h2> Some of My Favorite Movies</h2>
       <p>Click this button to see the server's message.</p>
+      <!--Button for random movies-->
       <button onclick="randomMovie();">Movies</button>
       <div id="movie-container"></div>
+      <!--link to entire server response-->
       <p>Click <a href="/hello"> here</a> to see the server response directly.</p>
-    </body>
+    
+
+<!--Translate about me section to language of choice-->
+
+    <h2>Translate</h2>
+    <p>Translate my "About Me" section in the language of your choice!</p>
+    </div>
+    <!--Create Button to translate language -->
+    <button onclick="translateLanguage();"> Translate</button>
+    <!--Choices of languages-->
+    <select id="language">
+      <option value="en">English</option>
+      <option value="zh">Chinese</option>
+      <option value="es">Spanish</option>
+      <option value="hi">Hindi</option>
+      <option value="ar">Arabic</option>
+      <option value="fr">French</option>
+      <option value="ru">Russian</option>
+      <option value="vi">Vietnamese</option>
+      <option value="ko">Korean</option>
+      <option value="ja">Japanese</option>
+      <option value="it">Italian</option>
+      <option value="el">Greek</option>
+    </select>
+    <hr/>
+    <div id="result"></div>
+
+</body>
 </html>
 
